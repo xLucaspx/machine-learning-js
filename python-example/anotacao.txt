@@ -1,28 +1,28 @@
 def carregar_acessos():
-    dados = []
-    marcacoes = []
+	dados = []
+	marcacoes = []
 
-    try:
-        with open('acesso.csv', 'r') as arquivo:
-            leitor = csv.reader(arquivo)
-            for linha in leitor:
-                try:
-                    home, como_funciona, contato, comprou = map(int, linha)
-                    dados.append([home, como_funciona, contato])
-                    marcacoes.append(comprou)
-                    
-                except ValueError:
-                    print(f"Linha inválida: {linha}")
-                    # Ignorar linha inválida ou registrar em log                    
-                    pass
-    except FileNotFoundError:
-        print("Erro: Arquivo 'acesso.csv' não encontrado.")
-        # Tratar o erro de arquivo não encontrado
+	try:
+		with open('acesso.csv', 'r') as arquivo:
+			leitor = csv.reader(arquivo)
+			for linha in leitor:
+				try:
+					home, como_funciona, contato, comprou = map(int, linha)
+					dados.append([home, como_funciona, contato])
+					marcacoes.append(comprou)
+						
+				except ValueError:
+					print(f"Linha inválida: {linha}")
+					# Ignorar linha inválida ou registrar em log                    
+					pass
+	except FileNotFoundError:
+		print("Erro: Arquivo 'acesso.csv' não encontrado.")
+		# Tratar o erro de arquivo não encontrado
 
-    return dados, marcacoes
+	return dados, marcacoes
 
 
 
-        for home,como_funciona,contato,comprou in leitor:
-        dados.append([int(home),int(como_funciona),int(contato)])
-        marcacoes.append(int(comprou))
+for home,como_funciona,contato,comprou in leitor:
+	dados.append([int(home),int(como_funciona),int(contato)])
+	marcacoes.append(int(comprou))
