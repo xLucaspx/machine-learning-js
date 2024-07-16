@@ -32,10 +32,8 @@ let cachorro3 = {
 	output: { cao: 1 },
 };
 
-const dados = [porco1, porco2, porco3, cachorro1, cachorro2, cachorro3];
-
 let network = new brain.NeuralNetwork();
-network.train(dados);
+network.train([porco1, porco2, porco3, cachorro1, cachorro2, cachorro3]);
 
 let misterioso1 = { gordo: 1, pernaCurta: 1, late: 1 }; // [0] dog
 let misterioso2 = { gordo: 1, pernaCurta: 1, late: 0 }; // [1] pig
@@ -112,19 +110,3 @@ for (let i = 0; i < expected.length; i++) {
 console.log("Total de elementos: ", totalElementos);
 console.log("Total de acertos: ", acertos);
 console.log(`Taxa de acertos: ${(100 * acertos) / totalElementos}%`);
-
-// print("resultado: ", resultado)
-
-// diferenca = resultado - marcacao_teste
-// print("diferença: ", diferenca)
-
-// acertos = [d for d in diferenca if d == 0]
-
-// total_acertos = len(acertos)
-// print("total de acertos: ", total_acertos)
-
-// total_elementos = len(teste)
-// print("total de elementos: ", total_elementos)
-
-// taxa_acertos = 100 * total_acertos / total_elementos
-// print("taxa_acertos: ", taxa_acertos, "%")

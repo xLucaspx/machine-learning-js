@@ -20,7 +20,7 @@ Dados qualitativos são descritivos ("Está frio", "Foi divertido", etc).
 ### Links úteis
 
 - [Machine Learning em JS](https://www.w3schools.com/ai/default.asp);
-- [Brain.js](https://www.w3schools.com/ai/ai_brainjs.asp);
+- [Brain.js](https://github.com/BrainJS/brain.js);
 - [TensorFlow playground](https://playground.tensorflow.org).
 
 #### Gráficos em JS
@@ -30,4 +30,3 @@ Dados qualitativos são descritivos ("Está frio", "Foi divertido", etc).
 - [Google Chart](https://www.w3schools.com/ai/ai_google_chart.asp).
 
 [**Última página lida**](https://www.w3schools.com/ai/ai_brainjs.asp).
-
