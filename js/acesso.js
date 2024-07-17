@@ -1,66 +1,39 @@
+import { getCsvAsArray, getFileAsText } from "./functions.js";
 import "//unpkg.com/brain.js";
-
-const form = document.getElementById("file-form");
-const fileInput = document.getElementById("file");
-const reader = new FileReader();
 
 const network = new brain.NeuralNetwork();
 
-// form.onsubmit = async (event) => {
-// 	event.preventDefault();
+console.log("Arquivo acesso.csv");
 
-// 	if (fileInput.files.length === 0) {
-// 		console.error("Nenhum arquivo selecionado!");
-// 		return;
-// 	}
+const text = await getFileAsText("../files/acesso.csv");
+const { header, data } = getCsvAsArray(text);
 
-// 	const file = fileInput.files[0];
+const trainData = getTrainData(header, data.slice(-10)); // últimas 10 linhas são tidas como verdadeiras
 
-// 	if (!file.type === "text/csv") {
-// 		console.error("Formato de arquivo inválido!");
-// 		return;
-// 	}
+network.train(trainData);
 
-// 	// TODO: safe file name
+const toBeTested = getDataToBeTested(header, data.slice(0, -10));
+let verdadeiros = 0;
 
-console.log("Arquivo acesso.csv")
+for (const line of toBeTested) {
+	const output = line.output;
+	const result = network.run(line.input);
 
-const file = await fetch("../files/acesso.csv");
-const blob = await file.blob();
-
-reader.readAsText(blob);
-reader.onloadend = () => {
-	const data = reader.result;
-	const arr = data.split('\r\n');
-	const header = arr.shift().split(',');
-
-	const trainData = getTrainData(header, arr.slice(-10)); // últimas 10 linhas são tidas como verdadeiras
-
-	network.train(trainData);
-
-	const toBeTested = getDataToBeTested(header, arr.slice(0, - 10));
-	let verdadeiros = 0;
-
-	for (const line of toBeTested) {
-		const output = line.output;
-		const result = network.run(line.input);
-
-		if (Math.round(result.comprou) == output) verdadeiros++
-	}
-
-	const totalElementos = toBeTested.length;
-	console.log("Total de elementos: ", totalElementos);
-	console.log("Verdadeiros: ", verdadeiros);
-	console.log(`Taxa de acertos: ${(100 * verdadeiros) / totalElementos}%`);
+	if (Math.round(result.comprou) == output) verdadeiros++;
 }
 
+const totalElementos = toBeTested.length;
+console.log("Total de elementos: ", totalElementos);
+console.log("Verdadeiros: ", verdadeiros);
+console.log(`Taxa de acertos: ${(100 * verdadeiros) / totalElementos}%`);
+
+// Funções:
 
 function getTrainData(header, inputs) {
 	const dataArr = [];
 
 	for (let line of inputs) {
-		line = line.split(',');
-		const outputPosition = header.length - 1;// o último valor é o output
+		const outputPosition = header.length - 1; // o último valor é o output
 
 		const input = {};
 		const output = {};
@@ -80,7 +53,6 @@ function getDataToBeTested(header, inputs) {
 	const dataArr = [];
 
 	for (let line of inputs) {
-		line = line.split(',');
 		const outputPosition = header.length - 1; // o último valor é o output
 
 		const input = {};

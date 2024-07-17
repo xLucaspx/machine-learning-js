@@ -20,25 +20,27 @@ acerto_um = len(marcacao[marcacao == 1])
 taxa_acerto_base = 100 * max(acerto_um, acerto_zero) / len(marcacao)
 print("taxa de acerto base: %f"% taxa_acerto_base," %")
 
-porcentagem_treino = 0.5
-tamanho_treino = int(porcentagem_treino * len(marcacao))
+# porcentagem_treino = 0.5
+# tamanho_treino = int(porcentagem_treino * len(marcacao))
 
-treino_dados = dados[:tamanho_treino]
-treino_marcacao = marcacao[:tamanho_treino]
+treino_dados = dados[-10:]
+treino_marcacao = marcacao[-10:]
 
-tamanho_teste = len(marcacao) - tamanho_treino
+# tamanho_teste = len(marcacao) - tamanho_treino
 
-teste_dados = dados[-tamanho_teste:]
-teste_marcacao = marcacao[-tamanho_teste:]
+teste_dados = dados[:89]
+teste_marcacao = marcacao[:89]
 
 modelo = MultinomialNB()
 modelo.fit(treino_dados, treino_marcacao)
+
 resultado = modelo.predict(teste_dados)
 
 diferenca = resultado - teste_marcacao
 print("diferença: ", diferenca)
 
 acertos = [d for d in diferenca if d == 0]
+
 total_acertos = len(acertos)
 print("total de acertos: ", total_acertos)
 
