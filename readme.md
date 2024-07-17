@@ -30,3 +30,5 @@ Dados qualitativos são descritivos ("Está frio", "Foi divertido", etc).
 - [Google Chart](https://www.w3schools.com/ai/ai_google_chart.asp).
 
 [**Última página lida**](https://www.w3schools.com/ai/ai_brainjs.asp).
+
+[funny](https://www.hasthelargehadroncolliderdestroyedtheworldyet.com).

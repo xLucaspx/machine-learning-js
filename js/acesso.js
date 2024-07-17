@@ -5,8 +5,6 @@ import {
 	getNeuralNetworkData,
 } from "./functions.js";
 
-console.log("Arquivo acesso.csv");
-
 const network = new brain.NeuralNetwork();
 
 const text = await getFileAsText("../files/acesso.csv");
@@ -29,6 +27,9 @@ for (const line of testData) {
 }
 
 const totalElementos = testData.length;
-console.log("Total de elementos: ", totalElementos);
-console.log("Verdadeiros: ", verdadeiros);
-console.log(`Taxa de acertos: ${(100 * verdadeiros) / totalElementos}%`);
+console.log(`
+	Arquivo acesso.csv
+	Total de elementos: ${totalElementos}
+	Verdadeiros: ${verdadeiros}
+	Taxa de acertos: ${((100 * verdadeiros) / totalElementos).toFixed(2)} %
+`);
