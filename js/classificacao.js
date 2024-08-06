@@ -4,7 +4,7 @@ import "//unpkg.com/brain.js";
 // param 2: perna curta
 // param 3: faz au au
 
-console.log("Classificação: aproximação");
+console.log("Aproximação");
 
 let porco1 = {
 	input: { gordo: 1, pernaCurta: 1, late: 0 },
@@ -53,7 +53,7 @@ console.log({
 	misterioso3: resultado[2],
 });
 
-console.log("Classificação: 0 ou 1");
+console.log("Classificação (0 ou 1)");
 
 porco1 = {
 	input: { gordo: 1, pernaCurta: 1, late: 0 },

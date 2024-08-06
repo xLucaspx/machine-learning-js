@@ -5,19 +5,107 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Machine Learning JS</title>
+
+	<link rel="stylesheet" href="./css/reset.css">
 </head>
 
 <body>
-	<form id="file-form">
-		<fieldset>
-			<legend>Faça o upload de um arquivo CSV</legend>
+	<h1 class="title title--1">Machine Learning com JavaScript</h1>
 
-			<label for="file">Arquivo:</label>
-			<input type="file" name="file" id="file" accept=".csv">
-		</fieldset>
+	<section class="container classification-test">
+		<h2 class="title title--2">Teste de aproximação</h2>
 
-		<button type="submit">Carregar arquivo</button>
-	</form>
+		<p class="text">Neste teste, a máquina é treinada com objetos contendo um campo <em>input</em> com seus respectivos valores e um
+			campo <em>output</em> contendo o resultado;
+			lembrando que os valores aceitos pelos campos são <strong>0</strong> para <strong>falso</strong> e
+			<strong>1</strong> para <strong>verdadeiro</strong>.
+		</p>
+
+		<p class="text">Após o treinamento, podemos passar objetos contendo apenas os valores de entrada e a máquina tenta
+			<strong>aproximar</strong> a saída com base nos dados.
+		</p>
+
+		<p class="text">Foram utilizados os seguintes dados para treinamento:</p>
+
+		<!-- Tabela dados treino -->
+		<!-- 
+			| Gordo | Perna Curta | Late | Saída    |
+			| 1     | 1           | 0    | Porco: 1 |
+			| 0     | 1           | 1    | Cão  : 1 |
+		-->
+
+		<h3 class="title title--3">Resultado</h3>
+
+		<!-- Tabela dados resultado -->
+
+		<h2 class="title title--2">Teste de classificação</h2>
+
+		<p class="text">Neste teste, a máquina é também é treinada com objetos contendo um campo <em>input</em> com seus respectivos
+			valores, porém o <em>output</em> contém apenas a saída (0 ou 1).
+		</p>
+
+		<p class="text">Após o treinamento, novamente podemos passar objetos contendo apenas os valores de entrada e a máquina tenta
+			<strong>classificar</strong> a saída em 0 ou 1 com base nos dados.
+		</p>
+
+		<p class="text">Foram utilizados os seguintes dados para treinamento:</p>
+
+		<!-- Tabela dados treino -->
+		<!-- 
+			| Gordo | Perna Curta | Late | Saída |
+			| 1     | 1           | 0    | 1     |
+			| 0     | 1           | 1    | 1     |
+		-->
+
+		<h3 class="title title--3">Resultado</h3>
+
+		<!-- Tabela dados resultado -->
+
+	</section>
+
+	<section class="container access">
+		<h2 class="title title--2">Teste com arquivo "acesso.csv"</h2>
+
+		<p class="text">Para este teste, foi utilizado um arquivo CSV contendo alguns campos, todos com valores 0 ou 1; para treinar a
+			máquina, tomou-se como saída a última coluna do arquivo e assumiu-se que as últimas 10 linhas contém dados
+			verdadeiros; testaram-se as linhas restantes pelo método da classificação, comparando a coluna de saída do arquivo
+			com a previsão da máquina.
+		</p>
+
+		<h3 class="title title--3">Dados utilizados para treino</h3>
+
+		<!-- Tabela dados treino -->
+
+		<h3 class="title title--3">Dados testados</h3>
+
+		<!-- Tabela dados resultado -->
+
+	</section>
+
+	<section class="container courses">
+		<h2 class="title title--2">Teste com arquivo "cursos.csv"</h2>
+
+		<p class="text">Neste teste, utilizou-se um arquivo CSV contendo um campo textual e demais campos com valores 0 ou 1; para o
+			treinamento novamente considerou-se a última coluna como a saída e as últimas 10 linhas do arquivo como
+			verdadeiras, porém com uma diferença: o campo de texto teve cada um dos seus valores convertido para um número,
+			sendo que valores iguais receberam o mesmo número. Testaram-se as linhas restantes do arquivo utilizado, também, o
+			método da classificacao para poder comparar o <em>output</em> da máquina com a saída original do arquivo.
+		</p>
+
+		<h3 class="title title--3">Dados utilizados para treino</h3>
+
+		<!-- Tabela dados treino -->
+		<!-- 
+			| Home | Busca        | Logado | Comprou |
+			| 1    | Algoritmo: 0 | 0      | 1       |
+			| 1    | Java     : 1 | 1      | 0       |
+			| 1    | Ruby     : 2 | 1      | 1       |
+		-->
+
+		<h3 class="title title--3">Dados testados</h3>
+
+		<!-- Tabela dados resultado -->
+	</section>
 </body>
 
 <script src="./js/classificacao.js" type="module"></script>
