@@ -4,6 +4,7 @@ import {
 	getFileAsText,
 	getNeuralNetworkData,
 } from "./functions.js";
+import { fillTrainTable } from "./output.js";
 
 const network = new brain.NeuralNetwork();
 
@@ -16,6 +17,8 @@ const trainData = data.slice(-10);
 const testData = data.slice(0, -10);
 
 network.train(trainData);
+
+fillTrainTable('access__table--train', trainData);
 
 let verdadeiros = 0;
 

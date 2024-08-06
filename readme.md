@@ -4,7 +4,7 @@ Utilizando uma base de dados (e.g. arquivo csv), pegar últimas 50 linhas como d
 
 ## Requisitos não funcionais
 
-- [ ] A linguagem de programação utilizada deverá ser _JavaScript_;
+- [x] A linguagem de programação utilizada deverá ser _JavaScript_;
 
 ## Machine Learning
 
@@ -28,7 +28,3 @@ Dados qualitativos são descritivos ("Está frio", "Foi divertido", etc).
 - [Ploty.js](https://www.w3schools.com/ai/ai_plotly.asp);
 - [Chart.js](https://www.w3schools.com/ai/ai_chartjs.asp);
 - [Google Chart](https://www.w3schools.com/ai/ai_google_chart.asp).
-
-[**Última página lida**](https://www.w3schools.com/ai/ai_brainjs.asp).
-
-[funny](https://www.hasthelargehadroncolliderdestroyedtheworldyet.com).

@@ -1,5 +1,6 @@
 import "//unpkg.com/brain.js";
 import { getCsvAsArray, getFileAsText } from "./functions.js";
+import { fillTrainTable } from "./output.js";
 
 const network = new brain.NeuralNetwork();
 
@@ -12,6 +13,8 @@ const trainData = data.slice(-10);
 const testData = data.slice(0, -10);
 
 network.train(trainData);
+
+fillTrainTable("courses__table--train", trainData);
 
 let verdadeiros = 0;
 
@@ -31,8 +34,8 @@ console.log(`
 `);
 
 /**
- * 
- * @param {CSV} csv 
+ *
+ * @param {CSV} csv
  * @returns {NeuralNetworkData[]}
  */
 function transformCsv(csv) {

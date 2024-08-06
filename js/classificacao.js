@@ -1,4 +1,5 @@
 import "//unpkg.com/brain.js";
+import { fillTrainTable } from "./output.js";
 
 // param 1: gordo
 // param 2: perna curta
@@ -32,8 +33,12 @@ let cachorro3 = {
 	output: { cao: 1 },
 };
 
+let trainData = [porco1, porco2, porco3, cachorro1, cachorro2, cachorro3];
+
 let network = new brain.NeuralNetwork();
-network.train([porco1, porco2, porco3, cachorro1, cachorro2, cachorro3]);
+network.train(trainData);
+
+fillTrainTable("classification__aprox__table--train", trainData);
 
 let misterioso1 = { gordo: 1, pernaCurta: 1, late: 1 }; // [0] dog
 let misterioso2 = { gordo: 1, pernaCurta: 1, late: 0 }; // [1] pig
@@ -81,8 +86,12 @@ cachorro3 = {
 	output: [0],
 };
 
+trainData = [porco1, porco2, porco3, cachorro1, cachorro2, cachorro3];
+
 network = new brain.NeuralNetwork();
-network.train([porco1, porco2, porco3, cachorro1, cachorro2, cachorro3]);
+network.train(trainData);
+
+fillTrainTable("classification__assert__table--train", trainData);
 
 resultado = [];
 const expected = [0, 1, 0];
