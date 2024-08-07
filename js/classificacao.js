@@ -1,5 +1,9 @@
 import "//unpkg.com/brain.js";
-import { fillTrainTable } from "./output.js";
+import {
+	fillInputOutputTable,
+	fillClassificationTable,
+	fillRate,
+} from "./output.js";
 
 // param 1: gordo
 // param 2: perna curta
@@ -38,18 +42,18 @@ let trainData = [porco1, porco2, porco3, cachorro1, cachorro2, cachorro3];
 let network = new brain.NeuralNetwork();
 network.train(trainData);
 
-fillTrainTable("classification__aprox__table--train", trainData);
+fillInputOutputTable("classification__aprox__table--train", trainData);
 
-let misterioso1 = { gordo: 1, pernaCurta: 1, late: 1 }; // [0] dog
-let misterioso2 = { gordo: 1, pernaCurta: 1, late: 0 }; // [1] pig
-let misterioso3 = { gordo: 0, pernaCurta: 0, late: 0 }; // [0] neither
+let misterioso1 = { input: { gordo: 1, pernaCurta: 1, late: 1 }, output: [0] }; // [0] dog
+let misterioso2 = { input: { gordo: 1, pernaCurta: 1, late: 0 }, output: [1] }; // [1] pig
+let misterioso3 = { input: { gordo: 0, pernaCurta: 0, late: 0 }, output: [0] }; // [0] neither
 
 let teste = [misterioso1, misterioso2, misterioso3];
 let resultado = [];
 
-for (const input of teste) {
-	const output = network.run(input);
-	resultado.push(output);
+for (const item of teste) {
+	const output = network.run(item.input);
+	resultado.push({ input: item.input, output });
 }
 
 console.log({
@@ -57,6 +61,8 @@ console.log({
 	misterioso2: resultado[1],
 	misterioso3: resultado[2],
 });
+
+fillInputOutputTable("classification__aprox__table--result", resultado);
 
 console.log("Classificação (0 ou 1)");
 
@@ -91,13 +97,12 @@ trainData = [porco1, porco2, porco3, cachorro1, cachorro2, cachorro3];
 network = new brain.NeuralNetwork();
 network.train(trainData);
 
-fillTrainTable("classification__assert__table--train", trainData);
+fillInputOutputTable("classification__assert__table--train", trainData);
 
 resultado = [];
-const expected = [0, 1, 0];
 
-for (const input of teste) {
-	const output = network.run(input);
+for (const item of teste) {
+	const output = network.run(item.input);
 	resultado.push(Math.round(output));
 }
 
@@ -107,15 +112,23 @@ console.log({
 	misterioso3: resultado[2],
 });
 
-const totalElementos = expected.length;
+const totalElementos = teste.length;
 let acertos = 0;
 
-for (let i = 0; i < expected.length; i++) {
-	if (expected[i] == resultado[i]) {
+for (let i = 0; i < totalElementos; i++) {
+	if (teste[i].output == resultado[i]) {
 		acertos++;
 	}
 }
 
+const taxaAcertos = (100 * acertos) / totalElementos;
 console.log("Total de elementos: ", totalElementos);
 console.log("Total de acertos: ", acertos);
-console.log(`Taxa de acertos: ${(100 * acertos) / totalElementos}%`);
+console.log(`Taxa de acertos: ${taxaAcertos}%`);
+
+fillClassificationTable(
+	"classification__assert__table--result",
+	teste,
+	resultado
+);
+fillRate("classification__assert__rate", taxaAcertos);

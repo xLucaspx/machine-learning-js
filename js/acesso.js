@@ -1,10 +1,14 @@
-import "//unpkg.com/brain.js";
 import {
 	getCsvAsArray,
 	getFileAsText,
 	getNeuralNetworkData,
 } from "./functions.js";
-import { fillTrainTable } from "./output.js";
+import {
+	fillClassificationTable,
+	fillRate,
+	fillInputOutputTable,
+} from "./output.js";
+import "//unpkg.com/brain.js";
 
 const network = new brain.NeuralNetwork();
 
@@ -18,21 +22,27 @@ const testData = data.slice(0, -10);
 
 network.train(trainData);
 
-fillTrainTable('access__table--train', trainData);
+fillInputOutputTable("access__table--train", trainData);
 
 let verdadeiros = 0;
+const resultArr = [];
 
 for (const line of testData) {
 	const output = line.output;
-	const result = network.run(line.input);
+	const result = Math.round(network.run(line.input));
+	resultArr.push(result);
 
-	if (Math.round(result) == output) verdadeiros++;
+	if (result == output) verdadeiros++;
 }
 
 const totalElementos = testData.length;
+const taxaVerdadeiros = ((100 * verdadeiros) / totalElementos).toFixed(2);
 console.log(`
 	Arquivo acesso.csv
 	Total de elementos: ${totalElementos}
 	Verdadeiros: ${verdadeiros}
-	Taxa de acertos: ${((100 * verdadeiros) / totalElementos).toFixed(2)} %
+	Taxa de acertos: ${taxaVerdadeiros} %
 `);
+
+fillClassificationTable("access__table--result", testData, resultArr);
+fillRate("access__rate", taxaVerdadeiros);
