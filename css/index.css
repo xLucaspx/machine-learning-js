@@ -48,3 +48,11 @@
 	font-weight: 600;
 	margin-top: 2rem;
 }
+
+.footer {
+	display: flex;
+	justify-content: center;
+	padding: 2rem;
+	background-color: var(--dk-blue);
+	color: #fff;
+}

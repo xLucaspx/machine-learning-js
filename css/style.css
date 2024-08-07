@@ -71,6 +71,9 @@ strong {
 
 .link {
   outline: none;
+	font-size: 18px;
+	font-weight: 500;
+	color: var(--orange);
   border-bottom: 2px solid transparent;
   transition: 0.35s ease-out;
 }
