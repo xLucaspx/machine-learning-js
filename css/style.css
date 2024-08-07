@@ -1,0 +1,83 @@
+:root {
+	/* Fonts */
+	--title-font-family: "JetBrains Mono", monospace;
+	--text-font-family: "IBM Plex Mono", monospace;
+	--font-color: #3c3c3c;
+
+	/* Backgrounds */
+	--bg-silver: #e5e9f3;
+	--bg-platinum: #eaeaea;
+	--bg-wk-grey: #e4e4f2;
+	--bg-md-grey: #cdc8d5;
+	--bg-white: #f7f7f7;
+
+	/* Colours */
+	--red: #d90023;
+	--green: #57bb00;
+	--blue: #0099da;
+	--md-blue: #005eab;
+	--lt-blue: #007aae;
+	--dk-blue: #00628c;
+	--yellow: #d99200;
+	--orange: #d94f00;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--text-font-family);
+	font-optical-sizing: auto;
+	color: var(--font-color);
+	line-height: 1.5;
+}
+
+em {
+	font-style: italic;
+	font-weight: 500;
+}
+
+strong {
+	font-weight: 700;
+}
+
+.container {
+	padding: 3.5rem 10%;
+}
+
+.title {
+	font-family: var(--title-font-family);
+}
+
+.title--1 {
+	font-weight: 700;
+	font-size: 48px;
+}
+
+.title--2 {
+	font-weight: 600;
+	font-size: 42px;
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.title--3 {
+	font-weight: 500;
+	font-size: 32px;
+	text-align: center;
+	margin: 2rem auto 1rem;
+}
+
+.link {
+  outline: none;
+  border-bottom: 2px solid transparent;
+  transition: 0.35s ease-out;
+}
+
+.link:hover,
+.link:active {
+	filter: brightness(90%);
+  border-color: var(--yellow);
+  text-shadow: 1px 1px var(--yellow);
+}

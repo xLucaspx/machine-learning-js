@@ -6,167 +6,198 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Machine Learning JS</title>
 
-	<!-- <link rel="stylesheet" href="./css/reset.css"> -->
+	<link rel="stylesheet" href="./css/reset.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="./css/table.css">
 </head>
 
 <body>
-	<h1 class="title title--1">Machine Learning com JavaScript</h1>
+	<header class="header">
+		<h1 class="title title--1 logo">Machine Learning com JavaScript</h1>
 
-	<section class="container classification-test">
-		<h2 class="title title--2">Teste de aproximação</h2>
+		<nav class="nav">
+			<ul class="nav__ul">
+				<li class="nav__ul__li"><a href="#teste-aprox" class="link">Aproximação</a></li>
+				<li class="nav__ul__li"><a href="#teste-assert" class="link">Classificação</a></li>
+				<li class="nav__ul__li"><a href="#acesso-csv" class="link">"acesso.csv"</a></li>
+				<li class="nav__ul__li"><a href="#cursos-csv" class="link">"cursos.csv"</a></li>
+			</ul>
+		</nav>
+	</header>
 
-		<p class="text">Neste teste, a máquina é treinada com objetos contendo um campo <em>input</em> com seus respectivos
-			valores e um campo <em>output</em> contendo o resultado; lembrando que os valores aceitos pelos campos são
-			<strong>0</strong> para <strong>falso</strong> e <strong>1</strong> para <strong>verdadeiro</strong>.
-		</p>
+	<main>
+		<section class="classification">
+			<div class="classification__aprox container">
+				<h2 class="title title--2" id="teste-aprox">Teste de aproximação</h2>
 
-		<p class="text">Após o treinamento, podemos passar objetos contendo apenas os valores de entrada e a máquina tenta
-			<strong>aproximar</strong> a saída com base nos dados.
-		</p>
+				<p class="text">Neste teste, a máquina é treinada com objetos contendo um campo <em>input</em> com seus
+					respectivos
+					valores e um campo <em>output</em> contendo o resultado; lembrando que os valores aceitos pelos campos são
+					<strong>0</strong> para <strong>falso</strong> e <strong>1</strong> para <strong>verdadeiro</strong>.
+				</p>
 
-		<p class="text">Foram utilizados os seguintes dados para treinamento:</p>
+				<p class="text">Após o treinamento, podemos passar objetos contendo apenas os valores de entrada e a máquina
+					tenta
+					<strong>aproximar</strong> a saída com base nos dados.
+				</p>
 
-		<!-- Tabela dados treino -->
-		<table id="classification__aprox__table--train">
-			<caption>Dados treinamento</caption>
+				<p class="text">Foram utilizados os seguintes dados para treinamento:</p>
 
-			<thead>
-				<tr></tr>
-			</thead>
+				<!-- Tabela dados treino -->
+				<table id="classification__aprox__table--train" class="table">
+					<caption class="table__caption">Dados treinamento</caption>
 
-			<tbody></tbody>
-		</table>
+					<thead>
+						<tr class="table__row"></tr>
+					</thead>
 
-		<h3 class="title title--3">Resultado</h3>
+					<tbody></tbody>
+				</table>
 
-		<!-- Tabela dados resultado -->
-		<table id="classification__aprox__table--result">
-			<caption>Resultado</caption>
+				<h3 class="title title--3">Resultado</h3>
 
-			<thead>
-				<tr></tr>
-			</thead>
+				<!-- Tabela dados resultado -->
+				<table id="classification__aprox__table--result" class="table">
+					<caption class="table__caption">Rede Neural: Entrada e Valores Aproximados</caption>
 
-			<tbody></tbody>
-		</table>
+					<thead>
+						<tr class="table__row"></tr>
+					</thead>
 
+					<tbody></tbody>
+				</table>
+			</div>
 
-		<h2 class="title title--2">Teste de classificação</h2>
+			<div class="classification__assert container">
+				<h2 class="title title--2" id="teste-assert">Teste de classificação</h2>
 
-		<p class="text">Neste teste, a máquina é também é treinada com objetos contendo um campo <em>input</em> com seus
-			respectivos valores, porém o <em>output</em> contém apenas a saída (0 ou 1).
-		</p>
+				<p class="text">Neste teste, a máquina é também é treinada com objetos contendo um campo <em>input</em> com seus
+					respectivos valores, porém o <em>output</em> contém apenas a saída (0 ou 1).
+				</p>
 
-		<p class="text">Após o treinamento, novamente podemos passar objetos contendo apenas os valores de entrada e a
-			máquina tenta <strong>classificar</strong> a saída em 0 ou 1 com base nos dados.
-		</p>
+				<p class="text">Após o treinamento, novamente podemos passar objetos contendo apenas os valores de entrada e a
+					máquina tenta <strong>classificar</strong> a saída em 0 ou 1 com base nos dados.
+				</p>
 
-		<p class="text">Foram utilizados os seguintes dados para treinamento:</p>
+				<p class="text">Foram utilizados os seguintes dados para treinamento:</p>
 
-		<!-- Tabela dados treino -->
-		<table id="classification__assert__table--train">
-			<caption>Dados treinamento</caption>
+				<!-- Tabela dados treino -->
+				<table id="classification__assert__table--train" class="table">
+					<caption class="table__caption">Dados treinamento</caption>
 
-			<thead>
-				<tr></tr>
-			</thead>
+					<thead>
+						<tr class="table__row"></tr>
+					</thead>
 
-			<tbody></tbody>
-		</table>
+					<tbody></tbody>
+				</table>
 
-		<h3 class="title title--3">Resultado</h3>
+				<h3 class="title title--3">Resultado</h3>
 
-		<!-- Tabela dados resultado -->
-		<table id="classification__assert__table--result">
-			<caption>Resultado</caption>
+				<!-- Tabela dados resultado -->
+				<table id="classification__assert__table--result" class="table">
+					<caption class="table__caption">Rede Neural: Entrada, Experado e Atual</caption>
 
-			<thead>
-				<tr></tr>
-			</thead>
+					<thead>
+						<tr class="table__row"></tr>
+					</thead>
 
-			<tbody></tbody>
-		</table>
+					<tbody></tbody>
+				</table>
 
-		<p id="classification__assert__rate"></p>
+				<p id="classification__assert__rate" class="rate"></p>
+			</div>
+		</section>
 
-	</section>
+		<section class="container access">
+			<h2 class="title title--2" id="acesso-csv">Teste com arquivo "acesso.csv"</h2>
 
-	<section class="container access">
-		<h2 class="title title--2">Teste com arquivo "acesso.csv"</h2>
+			<p class="text">Para este teste, foi utilizado um arquivo CSV contendo alguns campos, todos com valores 0 ou 1;
+				para
+				treinar a máquina, tomou-se como saída a última coluna do arquivo e assumiu-se que as últimas 10 linhas contém
+				dados verdadeiros; testaram-se as linhas restantes pelo método da classificação, comparando a coluna de saída do
+				arquivo com a previsão da máquina.
+			</p>
 
-		<p class="text">Para este teste, foi utilizado um arquivo CSV contendo alguns campos, todos com valores 0 ou 1; para
-			treinar a máquina, tomou-se como saída a última coluna do arquivo e assumiu-se que as últimas 10 linhas contém
-			dados verdadeiros; testaram-se as linhas restantes pelo método da classificação, comparando a coluna de saída do
-			arquivo com a previsão da máquina.
-		</p>
+			<h3 class="title title--3">Dados utilizados para treino</h3>
 
-		<h3 class="title title--3">Dados utilizados para treino</h3>
+			<!-- Tabela dados treino -->
+			<table id="access__table--train" class="table">
+				<caption class="table__caption">Dados treinamento</caption>
 
-		<!-- Tabela dados treino -->
-		<table id="access__table--train">
-			<caption>Dados treinamento</caption>
+				<thead>
+					<tr class="table__row"></tr>
+				</thead>
 
-			<thead>
-				<tr></tr>
-			</thead>
+				<tbody></tbody>
+			</table>
 
-			<tbody></tbody>
-		</table>
+			<h3 class="title title--3">Dados testados</h3>
 
-		<h3 class="title title--3">Dados testados</h3>
+			<!-- Tabela dados resultado -->
+			<table id="access__table--result" class="table">
+				<caption class="table__caption">Rede Neural: Entrada, Experado e Atual</caption>
 
-		<!-- Tabela dados resultado -->
-		<table id="access__table--result">
-			<caption>Resultado</caption>
+				<thead>
+					<tr class="table__row"></tr>
+				</thead>
 
-			<thead>
-				<tr></tr>
-			</thead>
+				<tbody></tbody>
+			</table>
 
-			<tbody></tbody>
-		</table>
+			<p id="access__rate" class="rate"></p>
+		</section>
 
-		<p id="access__rate"></p>
-	</section>
+		<section class="container courses">
+			<h2 class="title title--2" id="cursos-csv">Teste com arquivo "cursos.csv"</h2>
 
-	<section class="container courses">
-		<h2 class="title title--2">Teste com arquivo "cursos.csv"</h2>
+			<p class="text">Neste teste, utilizou-se um arquivo CSV contendo um campo textual e demais campos com valores 0 ou
+				1; para o treinamento novamente considerou-se a última coluna como a saída e as últimas 10 linhas do arquivo
+				como
+				verdadeiras, porém com uma diferença: o campo de texto teve cada um dos seus valores convertido para um número,
+				sendo que valores iguais receberam o mesmo número. Testaram-se as linhas restantes do arquivo utilizado, também,
+				o
+				método da classificacao para poder comparar o <em>output</em> da máquina com a saída original do arquivo.
+			</p>
 
-		<p class="text">Neste teste, utilizou-se um arquivo CSV contendo um campo textual e demais campos com valores 0 ou
-			1; para o treinamento novamente considerou-se a última coluna como a saída e as últimas 10 linhas do arquivo como
-			verdadeiras, porém com uma diferença: o campo de texto teve cada um dos seus valores convertido para um número,
-			sendo que valores iguais receberam o mesmo número. Testaram-se as linhas restantes do arquivo utilizado, também, o
-			método da classificacao para poder comparar o <em>output</em> da máquina com a saída original do arquivo.
-		</p>
+			<h3 class="title title--3">Dados utilizados para treino</h3>
 
-		<h3 class="title title--3">Dados utilizados para treino</h3>
+			<!-- Tabela dados treino -->
+			<table id="courses__table--train" class="table">
+				<caption class="table__caption">Dados treinamento</caption>
 
-		<!-- Tabela dados treino -->
-		<table id="courses__table--train">
-			<caption>Dados treinamento</caption>
+				<thead>
+					<tr class="table__row"></tr>
+				</thead>
 
-			<thead>
-				<tr></tr>
-			</thead>
+				<tbody></tbody>
+			</table>
 
-			<tbody></tbody>
-		</table>
+			<h3 class="title title--3">Dados testados</h3>
 
-		<h3 class="title title--3">Dados testados</h3>
+			<!-- Tabela dados resultado -->
+			<table id="courses__table--result" class="table">
+				<caption class="table__caption">Rede Neural: Entrada, Experado e Atual</caption>
 
-		<!-- Tabela dados resultado -->
-		<table id="courses__table--result">
-			<caption>Resultado</caption>
+				<thead>
+					<tr class="table__row"></tr>
+				</thead>
 
-			<thead>
-				<tr></tr>
-			</thead>
+				<tbody></tbody>
+			</table>
 
-			<tbody></tbody>
-		</table>
+			<p id="courses__rate" class="rate"></p>
+		</section>
+	</main>
 
-		<p id="courses__rate"></p>
-	</section>
+	<footer></footer>
 </body>
 
 <script src="./js/classificacao.js" type="module"></script>

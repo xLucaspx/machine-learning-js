@@ -1,0 +1,50 @@
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: var(--blue);
+	color: var(--orange);
+	padding: 1rem 5%;
+}
+
+.logo {
+	text-shadow: 2px 2px var(--yellow);
+}
+
+.nav__ul {
+	display: flex;
+	gap: 20px;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.classification__aprox,
+.classification__assert,
+.access,
+.courses {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.classification__aprox {
+	background-color: var(--bg-md-grey);
+}
+
+.classification__assert {
+	background-color: var(--bg-silver);
+}
+
+.access {
+	background-color: var(--bg-white);
+}
+
+.courses {
+	background-color: var(--bg-wk-grey);
+}
+
+.rate {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 2rem;
+}

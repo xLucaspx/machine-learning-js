@@ -1,0 +1,59 @@
+.table,
+.table__row {
+	border: 2px groove var(--yellow);
+	text-align: center;
+	align-self: center;
+	text-wrap: nowrap;
+	width: 800px;
+}
+
+.table__data {
+	width: fit-content;
+}
+
+.table__caption {
+	font-family: var(--title-font-family);
+	font-weight: 600;
+	font-size: 18px;
+	padding: 0.5em 0.5em 0.2em;
+	color: var(--orange);
+}
+
+.table__row {
+	color: #fff;
+}
+
+.table__header,
+.table__data {
+	padding-left: 1em;
+	padding-right: 1em;
+	max-width: 100px;
+}
+
+.table__header {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-weight: 500;
+	background-color: var(--md-blue);
+}
+
+.table__row:nth-child(odd) {
+	background-color: var(--lt-blue);
+}
+
+.table__row:nth-child(even) {
+	background-color: var(--dk-blue);
+}
+
+.table__data:last-child {
+	font-weight: 700;
+	text-shadow: 1px 1px #000;
+}
+
+.table__row--assertion .table__data:last-child {
+	color: var(--green);
+}
+
+.table__row--error .table__data:last-child {
+	color: var(--red);
+}

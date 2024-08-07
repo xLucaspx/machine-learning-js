@@ -53,6 +53,10 @@ let resultado = [];
 
 for (const item of teste) {
 	const output = network.run(item.input);
+
+	output.cao = output.cao.toFixed(3);
+	output.porco = output.porco.toFixed(3);
+
 	resultado.push({ input: item.input, output });
 }
 
